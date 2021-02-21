@@ -1,29 +1,22 @@
 import Head from "next/head";
 import Nav from "../components/Nav";
+import FirstCard from "../components/FirstCard";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen font-commissioner max-w-full">
+    <div className="flex flex-col items-center justify-center min-h-screen font-commissioner max-w-full bg-gray-100">
       <Head>
         <title>Frontend Mentor | Crowdfunding product page</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
-      <main className="flex flex-col items-center justify-center flex-1 text-center">
-        <Nav />
-        <h1 className="text-6xl font-bold text-blue-500 ">
-          Welcome to{" "}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{" "}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
+      <Nav />
+      <main className="flex flex-col items-center justify-center flex-1 text-center ">
+        <FirstCard />
 
         <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
           <a
