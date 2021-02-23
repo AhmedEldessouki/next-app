@@ -9,6 +9,12 @@ module.exports = {
   },
   theme: {
     extend: {
+      colors: {
+        "primary-color-moderate": "var(--primary-color-moderate)",
+        "primary-color-dark": "var(--primary-color-dark)",
+        "neutral-color-moderate": "var(--neutral-color-moderate)",
+        "neutral-color-dark": "var(--neutral-color-dark)",
+      },
       fontFamily: {
         commissioner: ['Commissioner'],
        }
@@ -24,8 +30,27 @@ module.exports = {
         padding: '0 8.9rem 0 10.4rem',
       },
     }
+    const btn = {
+      '.btn-primary-dark': {
+        background: '0 8.9rem 0 10.4rem',
+      },
+    }
+    const svgColor = {
+      '.svgColor-clicked': {
+        padding: '0 8.9rem 0 10.4rem',
+        'svg': {
 
-    addComponents(nav)
+          'circle': {
+            fill: 'hsl(176, 72%, 28%)'
+          },
+          'path': {
+            fill: '#f1f1f1'
+          }
+        }
+      },
+    }
+
+    addComponents(nav,svgColor, btn)
   })
 ],
 }

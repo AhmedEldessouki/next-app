@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
 
       <Nav />
-      <main className="flex flex-col items-center justify-center flex-1 text-center ">
+      <main className="flex flex-col items-center justify-center flex-1 text-center w-full ">
         <FirstCard />
 
         <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
