@@ -9,7 +9,6 @@ export default function SuccessModal() {
         <Card>
           <div className="flex flex-col items-center justify-center gap-4">
             <Image src="/icon-check.svg" alt="Logo" height={100} width={100} />
-
             <h1 className="text-3xl font-bold font-commissioner pt-10">
               Thanks for your support!
             </h1>

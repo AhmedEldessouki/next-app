@@ -1,9 +1,22 @@
 import Image from "next/image";
 import { useState } from "react";
+import useSWR from "swr";
+
+import { pledges } from "../data/pledges";
+
 import Card from "./Card";
 import SuccessModal from "./SuccessModal";
+import BackThisProject from "./BackThisProject";
+import ProjectCard from "./ProjectCard";
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function FirstCard() {
+  const { data, error } = useSWR<Array<typeof pledges[0]>, string>(
+    "/api/pledges",
+    fetcher
+  );
+  const [isChecked, setChecked] = useState([false, false, false, false]);
   const [bookMark, setBookMark] = useState(false);
   return (
     <>
@@ -60,6 +73,35 @@ export default function FirstCard() {
           </div>
         </Card>
       </div>
+      <BackThisProject>
+        {data
+          ? data.map(
+              (
+                { id, title, body, pledge, availableSpots }: typeof pledges[0],
+                i
+              ) => (
+                <ProjectCard
+                  key={id}
+                  title={title}
+                  pledge={pledge as number}
+                  body={body}
+                  isChecked={isChecked[i]}
+                  onSelect={() => {
+                    console.log(`[Clicked]: `, isChecked[i]);
+                    setChecked([]);
+                    if (isChecked.find((item) => item === true)) {
+                      const old = isChecked.indexOf(true);
+                      isChecked.splice(old, 1, false);
+                    }
+                    isChecked.splice(i, 1, !isChecked[i]);
+                    setChecked([...isChecked]);
+                  }}
+                  availableSpots={availableSpots}
+                />
+              )
+            )
+          : error}
+      </BackThisProject>
       {/* <SuccessModal /> */}
     </>
   );
