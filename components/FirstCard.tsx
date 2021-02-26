@@ -22,23 +22,21 @@ export default function FirstCard() {
     <>
       <div className="-mt-28  z-10 relative max-w-screen-md">
         <Card>
-          <div className="relative -top-20">
+          <div className="flex flex-col justify-center items-center -mt-20">
             <Image
               src="/logo-mastercraft.svg"
               alt="Logo"
               height={50}
               width={50}
             />
-          </div>
-          <div className="-mt-11">
-            <h1 className="text-3xl font-bold font-commissioner">
+            <h1 className="text-3xl font-bold font-commissioner mt-7">
               Mastercraft Bamboo Monitor Riser
             </h1>
             <p className="text-lg text-gray-500 pt-4  font-commissioner ">
               A beautiful & handcrafted monitor stand to reduce neck and eye
               strain.
             </p>
-            <div className="flex my-2 justify-between mt-9  mb-0">
+            <div className="flex w-full justify-between mt-9  mb-0">
               <button className="bg-primary-color-dark text-white rounded-full p-4 px-9 ">
                 Back this project
               </button>
@@ -73,7 +71,7 @@ export default function FirstCard() {
           </div>
         </Card>
       </div>
-      <BackThisProject>
+      {/* <BackThisProject>
         {data
           ? data.map(
               (
@@ -101,8 +99,8 @@ export default function FirstCard() {
               )
             )
           : error}
-      </BackThisProject>
-      {/* <SuccessModal /> */}
+      </BackThisProject> */}
+      <SuccessModal />
     </>
   );
 }

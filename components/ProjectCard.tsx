@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import PrimaryButton from "./PrimaryButton";
 export default function ProjectCard({
   title,
   pledge,
@@ -88,12 +88,7 @@ export default function ProjectCard({
                   )}
                 </button>
               )}
-              <button
-                className="flex justify-center text-white items-center bg-primary-color-moderate font-bold text-sm rounded-full p-2 w-24 hover:bg-primary-color-dark"
-                onClick={() => {}}
-              >
-                Continue
-              </button>
+              <PrimaryButton handleClick={() => {}}>Continue</PrimaryButton>
             </div>
           </div>
         </div>
