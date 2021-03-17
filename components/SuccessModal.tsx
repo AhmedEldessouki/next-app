@@ -2,7 +2,11 @@ import Image from "next/image";
 import Card from "./Card";
 import PrimaryButton from "./PrimaryButton";
 
-export default function SuccessModal() {
+export default function SuccessModal({
+  handleClick,
+}: {
+  handleClick: () => void;
+}) {
   return (
     <div className=" z-20 max-w-lg">
       <Card>
@@ -16,7 +20,7 @@ export default function SuccessModal() {
             Monitor Riser worldwide. You will get an email once our campaign is
             completed.
           </p>
-          <PrimaryButton className="p-4 w-26" handleClick={() => {}}>
+          <PrimaryButton className="p-4 w-26" handleClick={handleClick}>
             Got it!
           </PrimaryButton>
         </div>

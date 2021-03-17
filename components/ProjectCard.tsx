@@ -7,6 +7,7 @@ export default function ProjectCard({
   availableSpots,
   isChecked,
   onSelect,
+  handleClick,
 }: {
   title: string;
   pledge: number | undefined;
@@ -14,6 +15,7 @@ export default function ProjectCard({
   availableSpots: number | undefined;
   isChecked: boolean;
   onSelect: () => void;
+  handleClick: () => void;
 }) {
   const [isCheck, setCheck] = useState(false);
   // This is only because I cant get ::after to work with Tailwind
@@ -88,7 +90,7 @@ export default function ProjectCard({
                   )}
                 </button>
               )}
-              <PrimaryButton handleClick={() => {}}>Continue</PrimaryButton>
+              <PrimaryButton handleClick={handleClick}>Continue</PrimaryButton>
             </div>
           </div>
         </div>
