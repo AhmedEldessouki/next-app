@@ -13,7 +13,7 @@ export default function FullScreenBg({
       style={{ minHeight: "1149px" }}
       className={`flex justify-center items-center w-full z-40 bg-black ${
         !className && `bg-opacity-50`
-      } absolute inset-y-0 ${className}`}
+      } fixed inset-y-0 ${className}`}
     >
       {children}
     </div>

@@ -5,7 +5,7 @@ import FirstCard from "../components/FirstCard";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen font-commissioner max-w-full bg-gray-100">
+    <div className="min-h-screen font-commissioner w-full bg-gray-100">
       <Head>
         <title>Frontend Mentor | Crowdfunding product page</title>
         <link rel="icon" href="/favicon.ico" />
@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
 
       <Nav />
-      <main className="flex flex-col items-center justify-center flex-1 w-full">
+      <main className="flex flex-col items-center -mt-20  z-10 relative  w-full">
         <FirstCard />
       </main>
     </div>

@@ -21,7 +21,7 @@ export default function FirstCard() {
   }
   return (
     <>
-      <div className="-mt-28  z-10 relative max-w-screen-md">
+      <div className="max-w-screen-md">
         <Card>
           <div className="flex flex-col justify-center items-center -mt-20">
             <Image

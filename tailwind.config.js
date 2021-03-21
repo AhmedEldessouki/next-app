@@ -8,6 +8,12 @@ module.exports = {
     deviceSizes: [375, 1440],
   },
   theme: {
+    screens: {
+      sm: "500px",
+      md: [{ min: "100px", max: "767px" }],
+      lg: "1100px",
+      xl: "1400px",
+    },
     extend: {
       colors: {
         "primary-color-moderate": "var(--primary-color-moderate)",
@@ -32,35 +38,35 @@ module.exports = {
       };
       const checked = {
         /* pretty radio */
-          'div > input[type="radio"] ': {
-            display: "none",
-          },
-          'div > input[type="radio"] + *::before ': {
-            content: "",
-            display: "inline-block",
-            verticalAlign: " bottom",
-            width: " 1rem",
-            height: " 1rem",
-            marginRight: " 0.3rem",
-            borderRadius: " 50%",
-            borderStyle: " solid",
-            borderWidth: " 0.1rem",
-            borderColor: " gray",
-          },
-          'div > input[type="radio"]:checked + * ': {
-            color: "teal",
-          },
-          'div > input[type="radio"]:checked + *::before ': {
-            background:
-              "radial-gradient(teal 0%, teal 40%, transparent 50%, transparent)",
-            borderColor: "teal",
-          },
+        'div > input[type="radio"] ': {
+          display: "none",
+        },
+        'div > input[type="radio"] + *::before ': {
+          content: "",
+          display: "inline-block",
+          verticalAlign: " bottom",
+          width: " 1rem",
+          height: " 1rem",
+          marginRight: " 0.3rem",
+          borderRadius: " 50%",
+          borderStyle: " solid",
+          borderWidth: " 0.1rem",
+          borderColor: " gray",
+        },
+        'div > input[type="radio"]:checked + * ': {
+          color: "teal",
+        },
+        'div > input[type="radio"]:checked + *::before ': {
+          background:
+            "radial-gradient(teal 0%, teal 40%, transparent 50%, transparent)",
+          borderColor: "teal",
+        },
 
-          'div > input[type="radio"] + * ': {
-            display: " inline-block",
-            padding: " 0.5rem 1rem",
-          },
-        };
+        'div > input[type="radio"] + * ': {
+          display: " inline-block",
+          padding: " 0.5rem 1rem",
+        },
+      };
       const svgColor = {
         ".svgColor-clicked": {
           padding: "0 8.9rem 0 10.4rem",
