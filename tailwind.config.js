@@ -5,14 +5,14 @@ module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
   images: {
-    deviceSizes: [375, 1440],
+    deviceSizes: [500, 1440],
   },
   theme: {
     screens: {
       sm: "500px",
       md: [{ min: "100px", max: "767px" }],
       lg: "1100px",
-      xl: "1400px",
+      xl: "1440px",
     },
     extend: {
       colors: {

@@ -23,17 +23,20 @@ export default function FirstCard() {
     <>
       <div className="max-w-screen-md">
         <Card>
-          <div className="flex flex-col justify-center items-center -mt-20">
-            <Image
-              src="/logo-mastercraft.svg"
-              alt="Logo"
-              height={50}
-              width={50}
-            />
-            <h1 className="text-3xl font-bold font-commissioner mt-7">
+          <div className="flex flex-col md:text-center justify-center items-center ">
+            {/* <div className="flex flex-col md:text-center justify-center items-center  -mt-20 "> */}
+            <div className="absolute -top-6">
+              <Image
+                src="/logo-mastercraft.svg"
+                alt="Logo"
+                height={50}
+                width={50}
+              />
+            </div>
+            <h1 className="text-3xl md:text-xl  font-bold font-commissioner mt-7">
               Mastercraft Bamboo Monitor Riser
             </h1>
-            <p className="text-lg text-gray-500 pt-4  font-commissioner ">
+            <p className="text-lg text-gray-500 pt-4  font-commissioner md:text-sm">
               A beautiful & handcrafted monitor stand to reduce neck and eye
               strain.
             </p>
@@ -64,8 +67,8 @@ export default function FirstCard() {
                 <span
                   className={
                     bookMark
-                      ? "text-gray-500 font-bold pl-4 pr-5 text-lg"
-                      : "text-primary-color-dark font-bold pl-4 pr-5 text-lg"
+                      ? "text-gray-500 font-bold pl-4 pr-5 text-lg md:hidden"
+                      : "text-primary-color-dark font-bold pl-4 pr-5 text-lg md:hidden"
                   }
                 >
                   {bookMark ? "Bookmark" : "Bookmarked"}

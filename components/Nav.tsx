@@ -1,29 +1,45 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CloseButton from "./CloseButton";
 import FullScreenBg from "./FullScreenBg";
 
 export default function Nav() {
   const [model, setModel] = useState<"open" | "close">("close");
+  const [src, setSrc] = useState("/image-hero-desktop.jpg");
+
+  // useEffect(() => {
+  //   setSrc(() =>
+  //     window.innerWidth < 700
+  //       ? "/image-hero-mobile.jpg"
+  //       : "/image-hero-desktop.jpg"
+  //   );
+  //   console.log(src);
+  // }, [src]);
   return (
-    <nav>
+    <nav className="overflow-hidden">
       {model === "open" && (
         <FullScreenBg
           handleClick={() => setModel("close")}
           className="bg-gradient-to-b from-black to-gray-200 opacity-70"
         />
       )}
-      <Image
-        src="/image-hero-desktop.jpg"
-        alt="image hero desktop"
-        height={420}
-        width={1519}
-        objectFit="cover"
-      />
+      <div className="h-72 overflow-hidden relative">
+        <Image
+          alt="image hero desktop"
+          // height={420}
+          // width={1519}
+          objectFit="cover"
+          // layout="responsive"
+          objectPosition="50% 50%"
+          layout="fill"
+          src={src}
+          // srcSet="/image-hero-mobile.jpg, /image-hero-desktop.jpg"
+        />
+      </div>
       <div
         className={`flex justify-between items-center px-10 ${
           model === "close" ? `z-30` : `z-50`
-        } w-full nav-full-w absolute xl:top-12 sm:top-6 text-white font-commissioner`}
+        } w-full nav-full-w absolute top-12 md:top-6  text-white font-commissioner`}
       >
         <Image src="/logo.svg" alt="Logo" height={20} width={150} />
         <ul className=" md:hidden flex justify-around mx-10 max-w-full gap-7  font-normal text-base">
