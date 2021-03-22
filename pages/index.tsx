@@ -14,9 +14,8 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-
       <Nav />
-      <main className="flex flex-col items-center -mt-20 md:-mt-16 z-10 relative  w-full">
+      <main className="flex flex-col items-center -mt-20 md:-mt-16 z-10 relative w-full">
         <FirstCard />
       </main>
     </div>
