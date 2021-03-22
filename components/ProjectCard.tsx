@@ -50,30 +50,39 @@ export default function ProjectCard({
           </button>
         </div>
         <div className={`flex gap-4 flex-col`}>
-          <div className={`flex justify-between`}>
-            <div className={`flex gap-7`}>
-              <h2 className="font-commissioner text-1xl font-bold hover:text-primary-color-dark cursor-pointer">
+          <div className={`flex justify-between md:flex-col`}>
+            <div className={`flex gap-7 md:gap-2 md:-mt-3 md:flex-col `}>
+              <h2 className="font-commissioner text-1xl md:text-sm font-bold hover:text-primary-color-dark cursor-pointer">
                 {title}
               </h2>
               {pledge && (
-                <span className="font-commissioner text-primary-color-dark">
+                <span className="font-commissioner md:text-sm text-primary-color-dark">
                   Pledge ${pledge} or more
                 </span>
               )}
             </div>
             {availableSpots >= 0 && (
-              <span className="font-commissioner ">
-                <span className="font-bold pl-2">{availableSpots}</span> left
-              </span>
+              <div className="font-commissioner md:hidden">
+                <span className="font-bold pl-2">{availableSpots}</span>{" "}
+                <span>left</span>
+              </div>
             )}
           </div>
           <p className="font-commissioner text-gray-500 text-base">{body}</p>
+          {availableSpots >= 0 && (
+            <div className="font-commissioner hidden md:block">
+              <span className="font-bold">{availableSpots}</span>
+              <span className="text-gray-500"> left</span>
+            </div>
+          )}
         </div>
       </div>
       {isCheck && (
         <div className="border-t-2 border-gray-300 border-solid w-full transition-all ">
           <div className="flex place-items-center place-content-between p-6">
-            <span className="text-gray-500 font-light">Enter your pledge</span>
+            <span className="text-gray-500 font-light md:w-full md:text-center md:pb-4">
+              Enter your pledge
+            </span>
             <div className="flex my-2 justify-between mb-0 gap-3">
               {pledge && (
                 <button
