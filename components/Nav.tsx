@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CloseButton from "./CloseButton";
 import FullScreenBg from "./FullScreenBg";
 
@@ -7,14 +7,6 @@ export default function Nav() {
   const [model, setModel] = useState<"open" | "close">("close");
   const [src, setSrc] = useState("/image-hero-desktop.jpg");
 
-  // useEffect(() => {
-  //   setSrc(() =>
-  //     window.innerWidth < 700
-  //       ? "/image-hero-mobile.jpg"
-  //       : "/image-hero-desktop.jpg"
-  //   );
-  //   console.log(src);
-  // }, [src]);
   return (
     <nav className="overflow-hidden">
       {model === "open" && (
@@ -26,14 +18,10 @@ export default function Nav() {
       <div className="h-72 overflow-hidden relative">
         <Image
           alt="image hero desktop"
-          // height={420}
-          // width={1519}
           objectFit="cover"
-          // layout="responsive"
           objectPosition="50% 50%"
           layout="fill"
           src={src}
-          // srcSet="/image-hero-mobile.jpg, /image-hero-desktop.jpg"
         />
       </div>
       <div

@@ -24,7 +24,6 @@ export default function FirstCard() {
       <div className="max-w-screen-md">
         <Card>
           <div className="flex flex-col md:text-center justify-center items-center ">
-            {/* <div className="flex flex-col md:text-center justify-center items-center  -mt-20 "> */}
             <div className="absolute -top-6">
               <Image
                 src="/logo-mastercraft.svg"
