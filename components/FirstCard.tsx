@@ -8,6 +8,8 @@ import { pledges } from "../data/pledges";
 import Card from "./Card";
 import BackThisProject from "./BackThisProject";
 import ProjectCardMainPage from "./ProjectCardMainPage";
+import FullScreenBg from "./FullScreenBg";
+import SuccessModal from "./SuccessModal";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -18,8 +20,13 @@ export default function FirstCard() {
   );
   const [bookMark, setBookMark] = useState(false);
   const [isOpen, setOpen] = useState(false);
+  const [isSuccessful, setSuccessful] = useState(false);
+
   function handleModel() {
     setOpen(!isOpen);
+  }
+  function handleSuccessModel() {
+    setSuccessful(!isSuccessful);
   }
   return (
     <>
@@ -112,7 +119,7 @@ export default function FirstCard() {
                           pledge={pledge as number}
                           body={body}
                           availableSpots={availableSpots}
-                          handleClick={() => {}}
+                          handleClick={handleSuccessModel}
                         />
                       );
                     return null;
@@ -122,8 +129,27 @@ export default function FirstCard() {
           </div>
         </Card>
       </div>
-      {isOpen && (
-        <BackThisProject onCloseModel={handleModel} data={data} error={error} />
+      {(isSuccessful || isOpen) && (
+        <>
+          <FullScreenBg
+            handleClick={() => {
+              if (isSuccessful) {
+                handleSuccessModel();
+              } else {
+                handleModel();
+              }
+            }}
+          />
+          {isSuccessful && <SuccessModal handleClick={handleSuccessModel} />}
+          {isOpen && (
+            <BackThisProject
+              onCloseModel={handleModel}
+              onSuccess={handleSuccessModel}
+              data={data}
+              error={error}
+            />
+          )}
+        </>
       )}
     </>
   );
