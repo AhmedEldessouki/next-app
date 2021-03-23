@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
 import { useState } from "react";
 import useSWR from "swr";
@@ -6,6 +7,10 @@ import { pledges } from "../data/pledges";
 
 import Card from "./Card";
 import BackThisProject from "./BackThisProject";
+import ProjectCardMainPage from "./ProjectCardMainPage";
+import FullScreenBg from "./FullScreenBg";
+import SuccessModal from "./SuccessModal";
+import NumbsCard from "./NumbsCard";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -16,12 +21,17 @@ export default function FirstCard() {
   );
   const [bookMark, setBookMark] = useState(false);
   const [isOpen, setOpen] = useState(false);
+  const [isSuccessful, setSuccessful] = useState(false);
+
   function handleModel() {
     setOpen(!isOpen);
   }
+  function handleSuccessModel() {
+    setSuccessful(!isSuccessful);
+  }
   return (
     <>
-      <div className="max-w-screen-md">
+      <div className="max-w-screen-md w-6/12 lg:w-8/12 md:w-80 flex flex-col gap-5">
         <Card>
           <div className="flex flex-col md:text-center justify-center items-center ">
             <div className="absolute -top-6">
@@ -76,9 +86,72 @@ export default function FirstCard() {
             </div>
           </div>
         </Card>
+        <NumbsCard />
+        <Card>
+          <div className="flex flex-col gap-5 pb-5">
+            <h1 className="text-black text-lg font-bold">About this project</h1>
+            <p className="text-gray-500 md:text-sm">
+              The Mastercraft Bamboo Monitor Riser is a sturdy and stylish
+              platform that elevates your screen to a more comfortable viewing
+              height. Placing your monitor at eye level has the potential to
+              improve your posture and make you more comfortable while at work,
+              helping you stay focused on the task at hand.
+            </p>
+
+            <p className="text-gray-500 md:text-sm">
+              Featuring artisan craftsmanship, the simplicity of design creates
+              extra desk space below your computer to allow notepads, pens, and
+              USB sticks to be stored under the stand.
+            </p>
+
+            {data
+              ? data.map(
+                  ({
+                    id,
+                    title,
+                    body,
+                    pledge,
+                    availableSpots,
+                  }: typeof pledges[0]) => {
+                    if (title !== "Pledge with no reward")
+                      return (
+                        <ProjectCardMainPage
+                          key={id}
+                          title={title}
+                          pledge={pledge as number}
+                          body={body}
+                          availableSpots={availableSpots}
+                          handleClick={handleSuccessModel}
+                        />
+                      );
+                    return null;
+                  }
+                )
+              : error}
+          </div>
+        </Card>
       </div>
-      {isOpen && (
-        <BackThisProject onCloseModel={handleModel} data={data} error={error} />
+      {(isSuccessful || isOpen) && (
+        <>
+          <FullScreenBg
+            handleClick={() => {
+              if (isSuccessful) {
+                handleSuccessModel();
+              } else {
+                handleModel();
+              }
+            }}
+          />
+          {isSuccessful && <SuccessModal handleClick={handleSuccessModel} />}
+          {isOpen && (
+            <BackThisProject
+              onCloseModel={handleModel}
+              onSuccess={handleSuccessModel}
+              data={data}
+              error={error}
+            />
+          )}
+        </>
       )}
     </>
   );

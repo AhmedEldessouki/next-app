@@ -68,7 +68,9 @@ export default function ProjectCard({
               </div>
             )}
           </div>
-          <p className="font-commissioner text-gray-500 text-base">{body}</p>
+          <p className="font-commissioner text-gray-500 text-base  md:text-sm">
+            {body}
+          </p>
           {availableSpots >= 0 && (
             <div className="font-commissioner hidden md:block">
               <span className="font-bold">{availableSpots}</span>
