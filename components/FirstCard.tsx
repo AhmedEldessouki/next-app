@@ -10,6 +10,7 @@ import BackThisProject from "./BackThisProject";
 import ProjectCardMainPage from "./ProjectCardMainPage";
 import FullScreenBg from "./FullScreenBg";
 import SuccessModal from "./SuccessModal";
+import NumbsCard from "./NumbsCard";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -85,6 +86,7 @@ export default function FirstCard() {
             </div>
           </div>
         </Card>
+        <NumbsCard />
         <Card>
           <div className="flex flex-col gap-5 pb-5">
             <h1 className="text-black text-lg font-bold">About this project</h1>
